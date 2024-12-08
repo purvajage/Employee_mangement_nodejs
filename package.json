@@ -1,0 +1,17 @@
+{
+  "name": "employee_mangement_nodejs",
+  "version": "1.0.0",
+  "description": "API FOR EMPLOYEE MANGEMENT SYSTEM",
+  "main": "SERVER.JS",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "purva jage",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "mongoose": "^8.8.4",
+    "nodemon": "^3.1.7"
+  }
+}
