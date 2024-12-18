@@ -1,12 +1,11 @@
 const express=require("express");
 const mongoose=require("mongoose");
 require("dotenv").config();
-//initialize express app
+
 const app=express();
-//middleware to parse json
+
 app.use(express.json());
 
-//database connection
 mongoose
 .connect(process.env.MONGO_URI,{
     useNewUrlParser:true,
@@ -21,7 +20,7 @@ mongoose
 
 const departmentRoutes=require("./Routes/deptroutes");
 const employeeRoutes=require("./Routes/employroutes");
-const projectRoutes=require("./Controller/projectcontroller");
+const projectRoutes=require("./Routes/projectroutes");
 
 // Use routes
 app.use("/api/departments", departmentRoutes);

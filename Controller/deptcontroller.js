@@ -1,8 +1,8 @@
 const department=require("../Models/deptmodel");
 
-// Controller methods
-const departmentController = {
-  // Get all departments
+
+const deptcontroller = {
+
   getAllDepartments: async (req, res) => {
     try {
       const departments = await Department.find().populate("managerId");
@@ -12,7 +12,7 @@ const departmentController = {
     }
   },
 
-  // Get department by ID
+
   getDepartmentById: async (req, res) => {
     try {
       const { id } = req.params;
@@ -26,7 +26,7 @@ const departmentController = {
     }
   },
 
-  // Create a new department
+
   createDepartment: async (req, res) => {
     try {
       const newDepartment = new Department(req.body);
@@ -37,7 +37,6 @@ const departmentController = {
     }
   },
 
-  // Update department by ID
   updateDepartment: async (req, res) => {
     try {
       const { id } = req.params;
@@ -51,7 +50,6 @@ const departmentController = {
     }
   },
 
-  // Delete department by ID
   deleteDepartment: async (req, res) => {
     try {
       const { id } = req.params;
@@ -66,4 +64,4 @@ const departmentController = {
   },
 };
 
-module.exports = departmentController;
+module.exports = deptcontroller;

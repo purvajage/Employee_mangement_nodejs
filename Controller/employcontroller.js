@@ -14,7 +14,7 @@ const employeecontroller={
             const{id}=req.params;
             const employee=await Employee.findById(id);
             if(!employee){
-                return res.status(404).json({message:"employee not foynd"});
+                return res.status(404).json({message:"employee not found"});
             }
             res.status(200).json(employee);
         } catch(error){
@@ -23,7 +23,7 @@ const employeecontroller={
     },
     createemployee:async(req,res)=>{
         try{
-            const newEmployee=new Employee(re.body);
+            const newEmployee=new Employee(req.body);
             const savedEmployee= await newEmployee.save();
             res.status(201).json(savedEmployee);
         }

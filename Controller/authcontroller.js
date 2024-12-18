@@ -7,7 +7,7 @@ const registercontroller = async (req, res) => {
     try {
         const { userName, email, password, phone, address, answer } = req.body;
 
-        // Validation
+   
         if (!userName || !email || !password || !phone || !address || !answer) {
             return res.status(400).send({
                 success: false,
@@ -15,7 +15,7 @@ const registercontroller = async (req, res) => {
             });
         }
 
-        // Check if user exists
+      
         const existingUser = await usermodel.findOne({ email });
         if (existingUser) {
             return res.status(400).send({
@@ -24,15 +24,14 @@ const registercontroller = async (req, res) => {
             });
         }
 
-        // Hash password
+    
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Create new user
         const user = await usermodel.create({
-            userName, // Corrected to match the field
+            userName, 
             email,
-            password: hashedPassword, // Use a colon instead of a semicolon
+            password: hashedPassword, 
             phone,
             address,
             answer,
@@ -58,7 +57,6 @@ const logincontroller = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // Validation
         if (!email || !password) {
             return res.status(400).send({
                 success: false,
@@ -66,7 +64,7 @@ const logincontroller = async (req, res) => {
             });
         }
 
-        // Check if user exists
+       
         const user = await usermodel.findOne({ email });
         if (!user) {
             return res.status(404).send({
@@ -75,7 +73,6 @@ const logincontroller = async (req, res) => {
             });
         }
 
-        // Compare password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).send({
@@ -84,12 +81,11 @@ const logincontroller = async (req, res) => {
             });
         }
 
-        // Generate token
         const token = JWT.sign({ id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "7d",
         });
 
-        // Remove password before sending response
+     
         user.password = undefined;
 
         res.status(200).send({

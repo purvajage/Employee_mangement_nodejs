@@ -8,4 +8,4 @@ router.get("/:id",employeecontroller.getEmployeeId);
 router.post("/",employeecontroller.createemployee);
 router.put("/:id",employeecontroller.updateEmployee);
 router.delete("/:id",employeecontroller.deleteemployee);
-modile.exports=router;
+module.exports=router;
