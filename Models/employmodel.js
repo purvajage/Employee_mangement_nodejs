@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// Schema
 const employeeSchema = new mongoose.Schema(
   {
     firstName: {
@@ -45,5 +44,5 @@ const employeeSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Export
+
 module.exports = mongoose.model("Employee", employeeSchema);

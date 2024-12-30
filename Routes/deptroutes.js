@@ -3,7 +3,6 @@ const router=express.router();
 const deptcontroller=require("../Controller/deptcontroller");
 
 
-//department routes
 router.get("/",deptcontroller.getAllDepartments);
 router.get("/:id",deptcontroller.getDepartmentById);
 router.post("/",deptcontroller.createDepartment);

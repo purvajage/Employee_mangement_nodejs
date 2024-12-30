@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// Schema
+
 const projectSchema = new mongoose.Schema(
   {
     projectName: {
@@ -27,5 +27,5 @@ const projectSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Export
+
 module.exports = mongoose.model("Project", projectSchema);

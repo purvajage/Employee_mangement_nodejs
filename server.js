@@ -22,22 +22,20 @@ const departmentRoutes=require("./Routes/deptroutes");
 const employeeRoutes=require("./Routes/employroutes");
 const projectRoutes=require("./Routes/projectroutes");
 
-// Use routes
 app.use("/api/departments", departmentRoutes);
 app.use("/api/employees", employeeRoutes);
 app.use("/api/projects", projectRoutes);
 
-// Default route
+
 app.get("/", (req, res) => {
   res.send("Welcome to the Company Management API");
 });
 
-// Handle undefined routes
+
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

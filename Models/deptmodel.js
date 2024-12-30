@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// Schema
+
 const departmentSchema = new mongoose.Schema(
   {
     deptName: {
@@ -19,5 +19,5 @@ const departmentSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Export
+
 module.exports = mongoose.model("Department", departmentSchema);
